@@ -1,3 +1,12 @@
-<div id="shipping-plan">
+<?php /** @var \Magento\Framework\View\Element\Template $block */ ?>
+<div id="shipping-plan" data-bind="scope: 'skuLookup'">
     
 </div>
+
+<script type="text/x-magento-init">
+    {
+        "#shipping-plan": {
+            "Magento_Ui/js/core/app": <?= $block->getJsLayout() ?>
+        }
+    }
+</script>
