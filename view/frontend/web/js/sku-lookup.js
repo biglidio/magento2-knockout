@@ -15,7 +15,8 @@ define([
                 </item>
             */
             // template: 'Biglidio_InventoryFulfillment/sku-lookup',
-            sku: ko.observable('ABC123')
+            sku: ko.observable('ABC123'),
+            placeholder: 'This is an input field'
         },
         initialize() {
             this._super();
