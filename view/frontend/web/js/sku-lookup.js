@@ -1,4 +1,10 @@
-define(['uiComponent'], function(Component){
+define([
+    'uiComponent', 
+    'ko'
+], function(
+    Component, 
+    ko
+){
     'use strict'
 
     return Component.extend({
@@ -9,7 +15,7 @@ define(['uiComponent'], function(Component){
                 </item>
             */
             // template: 'Biglidio_InventoryFulfillment/sku-lookup',
-            sku: '<em>ABC123</em>'
+            sku: ko.observable('ABC123')
         },
         initialize() {
             this._super();
