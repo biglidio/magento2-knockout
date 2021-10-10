@@ -19,6 +19,7 @@ define([
             // template: 'Biglidio_InventoryFulfillment/sku-lookup',
             sku: ko.observable('24-MB01'),
             placeholder: 'This is an input field',
+            messageResponse: ko.observable(''),
             // productImg: ko.observable('')
         },
         initialize() {
@@ -27,11 +28,15 @@ define([
             console.log('The skuLookup component has been loaded.');
         },
         handleSubmit() {
+            this.messageResponse('');
+            
             storage.get(`rest/V1/products/${this.sku()}`)
                 .done(response => {
-                    console.log(response)
                     // this.productImg(`/media/catalog/product/${response.media_gallery_entries[0].file}`);
-
+                    this.messageResponse(`Product found! <strong>${response.name}</strong>`);
+                })
+                .fail(() => {
+                    this.messageResponse('Product not found.');
                 });
             console.log(this.sku() + ' SKU confirmed');
         }
