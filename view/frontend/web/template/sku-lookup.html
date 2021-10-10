@@ -3,7 +3,7 @@
     <form data-bind="submit: handleSubmit">
         <input type="text" id="sku" name="sku" data-bind="textInput: sku, attr: { placeholder: placeholder}"/>
         <button type="submit">Confirm SKU</button>
-        <div data-bind="html: messageResponse"></div>
+        <div data-bind="html: messageResponse, style: { color: isSuccess() ? 'green' : 'red' }"></div>
         <!-- <img style="width: 100px; height: 100px;" data-bind="attr: { src: productImg}"> -->
     </form>
 </div>

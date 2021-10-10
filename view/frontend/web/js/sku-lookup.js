@@ -20,6 +20,7 @@ define([
             sku: ko.observable('24-MB01'),
             placeholder: 'This is an input field',
             messageResponse: ko.observable(''),
+            isSuccess: ko.observable(false),
             // productImg: ko.observable('')
         },
         initialize() {
@@ -29,16 +30,18 @@ define([
         },
         handleSubmit() {
             this.messageResponse('');
+            this.isSuccess(false);
             
             storage.get(`rest/V1/products/${this.sku()}`)
                 .done(response => {
                     // this.productImg(`/media/catalog/product/${response.media_gallery_entries[0].file}`);
                     this.messageResponse(`Product found! <strong>${response.name}</strong>`);
+                    this.isSuccess(true);
                 })
                 .fail(() => {
                     this.messageResponse('Product not found.');
+                    this.isSuccess(false);
                 });
-            console.log(this.sku() + ' SKU confirmed');
         }
     });
 });
