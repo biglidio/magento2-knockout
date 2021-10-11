@@ -1,8 +1,13 @@
 <div class="sku-lookup">
-    <h2>SKU Lookup</h2>
+    <!-- Many ways to translate texts in Magento HTML -->
+    <h2 data-bind="i18n: 'SKU Lookup'"> <!-- Better way, cause it renders well and doesn't create unnecessary HTML elements -->
+        <!-- <span translate="'SKU Lookup'"></span> -->
+        <!-- <translate args="'SKU Lookup'" /> -->
+        <!-- ko i18n: 'SKU Lookup' --><!-- /ko -->
+    </h2>
     <form data-bind="submit: handleSubmit">
         <input type="text" id="sku" name="sku" data-bind="textInput: sku, attr: { placeholder: placeholder}"/>
-        <button type="submit">Confirm SKU</button>
+        <button type="submit"><!-- ko i18n: 'Confirm SKU' --><!-- /ko --></button>
         <div data-bind="html: messageResponse, style: { color: isSuccess() ? 'green' : 'red' }"></div>
         <!-- <img style="width: 100px; height: 100px;" data-bind="attr: { src: productImg}"> -->
     </form>
