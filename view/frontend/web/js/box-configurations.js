@@ -24,7 +24,6 @@ define([
         },
         initialize() {
             this._super();
-
             console.log('Box configurations component setup successfully');
         },
         handleAdd() {
@@ -32,6 +31,9 @@ define([
         },
         handleDelete(index) {
             this.boxConfigurations.splice(index, 1);
+        },
+        handleSubmit() {
+            console.log('Submitted box configuration form');
         }
     });
 });
