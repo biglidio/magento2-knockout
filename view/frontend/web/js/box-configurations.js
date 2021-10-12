@@ -7,7 +7,7 @@ define([
 ) {
     'use strict'
 
-    const boxConfiguration = () => {
+    var boxConfiguration = () => {
         return {
             length: ko.observable(),
             width: ko.observable(),
@@ -26,6 +26,9 @@ define([
             this._super();
 
             console.log('Box configurations component setup successfully');
+        },
+        handleAdd() {
+            this.boxConfigurations.push(boxConfiguration());
         }
     });
 });
