@@ -1,11 +1,13 @@
 define([
     'uiComponent',
     'ko',
-    'Biglidio_InventoryFulfillment/js/model/box-configurations'
+    'Biglidio_InventoryFulfillment/js/model/box-configurations',
+    'Biglidio_InventoryFulfillment/js/model/sku'
 ], function(
     Component,
     ko,
-    boxConfigurationsModel
+    boxConfigurationsModel,
+    skuModel
 ) {
     'use strict'
 
@@ -15,7 +17,14 @@ define([
         },
         initialize() {
             this._super();
-            console.log('Box configurations component setup successfully');
+
+            skuModel.isSuccess.subscribe((value) => {
+                console.log('SKU isSuccess value', value);
+            });
+
+            skuModel.isSuccess.subscribe((value) => {
+                console.log('SKU isSuccess old value', value);
+            }, null, 'beforeChange');
         },
         handleAdd() {
             boxConfigurationsModel.add();

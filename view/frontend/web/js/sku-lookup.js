@@ -31,8 +31,6 @@ define([
         },
         initialize() {
             this._super();
-
-            console.log('The skuLookup component has been loaded.');
         },
         handleSubmit() {
             $('body').trigger('processStart');
