@@ -2,12 +2,14 @@ define([
     'uiComponent',
     'ko',
     'Biglidio_InventoryFulfillment/js/model/box-configurations',
-    'Biglidio_InventoryFulfillment/js/model/sku'
+    'Biglidio_InventoryFulfillment/js/model/sku',
+    'jquery'
 ], function(
     Component,
     ko,
     boxConfigurationsModel,
-    skuModel
+    skuModel,
+    $
 ) {
     'use strict'
 
@@ -33,7 +35,13 @@ define([
             boxConfigurationsModel.delete(index);
         },
         handleSubmit() {
-            console.log('Submitted box configuration form');
+            $('.box-configurations form input').removeAttr('aria-invalid');
+
+            if ($('.box-configurations form').valid()) {
+                console.log('Box configuration success.');
+            } else {
+                console.warn('Box configuration error.');
+            }
         }
     });
 });
