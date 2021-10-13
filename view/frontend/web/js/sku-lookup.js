@@ -3,13 +3,15 @@ define([
     'ko',
     'mage/storage',
     'jquery',
-    'mage/translate'
+    'mage/translate',
+    'Biglidio_InventoryFulfillment/js/model/sku'
 ], function(
     Component, 
     ko,
     storage,
     $,
-    $t
+    $t,
+    skuModel
 ){
     'use strict'
 
@@ -21,10 +23,10 @@ define([
                 </item>
             */
             // template: 'Biglidio_InventoryFulfillment/sku-lookup',
-            sku: ko.observable('24-MB01'),
+            sku: skuModel.sku,
             placeholder: $t('Example: %1').replace('%1', '24-MB01'),
             messageResponse: ko.observable(''),
-            isSuccess: ko.observable(false),
+            isSuccess: skuModel.isSuccess,
             // productImg: ko.observable('')
         },
         initialize() {
