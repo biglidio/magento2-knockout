@@ -14,7 +14,6 @@ define([
     return Component.extend({
         defaults : {
             isTermsChecked: ko.observable(false),
-            boxConfigurationsModel: boxConfigurationsModel
         },
         initialize() {
             this._super();
@@ -23,6 +22,24 @@ define([
                 return skuModel.isSuccess()
                     && boxConfigurationsModel.isSuccess()
                     && this.isTermsChecked();
+            });
+
+            this.numberOfBoxes = ko.computed(() => {
+                return boxConfigurationsModel.boxConfigurations().reduce(function(runningTotal, boxConfiguration) {
+                    return runningTotal + (boxConfiguration.numberOfBoxes() || 0);
+                }, 0);
+            });
+
+            this.totalWeight = ko.computed(() => {
+                return boxConfigurationsModel.boxConfigurations().reduce(function(runningTotal, boxConfiguration) {
+                    return runningTotal + (boxConfiguration.totalWeight() || 0);
+                }, 0);
+            });
+
+            this.billableWeight = ko.computed(() => {
+                return boxConfigurationsModel.boxConfigurations().reduce(function(runningTotal, boxConfiguration) {
+                    return runningTotal + (boxConfiguration.billableWeight() || 0);
+                }, 0);
             });
         },
         handleSubmit() {

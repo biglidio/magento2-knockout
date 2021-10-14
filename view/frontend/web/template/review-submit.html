@@ -12,15 +12,17 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody data-bind="foreach: boxConfigurationsModel.boxConfigurations">
+            <tbody>
                 <tr>
-                    <td><!-- ko text: numberOfBoxes --><!-- /ko --></td>
                     <td>
-                        <!-- ko text: totalWeight() --><!-- /ko -->
+                        <span data-bind="text: numberOfBoxes"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: totalWeight()"></span>
                         <!-- ko i18n: 'lb.' --><!-- /ko -->
                     </td>
                     <td>
-                        <!-- ko text: billableWeight() --><!-- /ko -->
+                        <span data-bind="text: billableWeight()"></span>
                         <!-- ko i18n: 'lb.' --><!-- /ko -->
                     </td>
                 </tr>
@@ -40,5 +42,4 @@
             </tfooter>
         </table>
     </form>
-
 </div>
