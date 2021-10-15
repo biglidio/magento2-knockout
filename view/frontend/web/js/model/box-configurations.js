@@ -9,12 +9,12 @@ define([
         const divisor = 139;
 
         const data = {
-            length: ko.observable('16').extend({numeric: true}),
-            width: ko.observable('16').extend({numeric: true}),
-            height: ko.observable('16').extend({numeric: true}),
-            weight: ko.observable('10').extend({numeric: true}),
-            unitsPerBox: ko.observable('100').extend({numeric: true}),
-            numberOfBoxes: ko.observable('1').extend({numeric: true}),
+            length: ko.observable('').extend({numeric: true}),
+            width: ko.observable('').extend({numeric: true}),
+            height: ko.observable('').extend({numeric: true}),
+            weight: ko.observable('').extend({numeric: true}),
+            unitsPerBox: ko.observable('').extend({numeric: true}),
+            numberOfBoxes: ko.observable('').extend({numeric: true}),
         }
 
         data.dimensionalWeight = ko.computed(() => {
@@ -45,10 +45,10 @@ define([
                 }, 0);
             });
         },
-        totalWeight: function () {
+        shipmentWeight: function () {
             return ko.computed(() => {
                 return this.boxConfigurations().reduce(function(runningTotal, boxConfiguration) {
-                    return runningTotal + (boxConfiguration.totalWeight() || 0);
+                    return runningTotal + (boxConfiguration.weight() || 0);
                 }, 0);
             });
         },

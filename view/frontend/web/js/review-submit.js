@@ -15,8 +15,9 @@ define([
         defaults : {
             isTermsChecked: ko.observable(false),
             numberOfBoxes: boxConfigurationsModel.numberOfBoxes(),
-            totalWeight: boxConfigurationsModel.totalWeight(),
+            shipmentWeight: boxConfigurationsModel.shipmentWeight(),
             billableWeight: boxConfigurationsModel.billableWeight(),
+            boxConfigurationsIsSuccess: boxConfigurationsModel.isSuccess
         },
         initialize() {
             this._super();

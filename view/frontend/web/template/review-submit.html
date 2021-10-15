@@ -1,4 +1,4 @@
-<div class="review-submit">
+<div class="review-submit" data-bind="visible: boxConfigurationsIsSuccess">
     <h2><!-- ko i18n: 'Review & Submit' --><!-- /ko --></h2>
     <p><!-- ko i18n: 'Please review the box configurations before submitting.' --><!-- /ko --></p>
 
@@ -18,7 +18,7 @@
                         <span data-bind="text: numberOfBoxes"></span>
                     </td>
                     <td>
-                        <span data-bind="text: totalWeight"></span>
+                        <span data-bind="text: shipmentWeight"></span>
                         <!-- ko i18n: 'lb.' --><!-- /ko -->
                     </td>
                     <td>
