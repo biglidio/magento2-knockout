@@ -2,7 +2,7 @@
     <h2><!-- ko i18n: 'Review & Submit' --><!-- /ko --></h2>
     <p><!-- ko i18n: 'Please review the box configurations before submitting.' --><!-- /ko --></p>
 
-    <form data-bind="submit: handleSubmit, attr: { action: getUrl()}", method="post">
+    <form data-bind="submit: handleSubmit">
         <table>
             <thead>
                 <tr>
@@ -41,7 +41,5 @@
                 </tr>
             </tfooter>
         </table>
-        <input type="hidden" name="boxConfigurations" data-bind="value: ko.toJSON(boxConfigurations)" />
-        <input type="hidden" name="sku" data-bind="value: sku()" />
     </form>
 </div>
